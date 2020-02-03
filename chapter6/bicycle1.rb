@@ -11,6 +11,8 @@ class Bicycle
   end
 
   # checking "style" starts down a slippery slope
+  #in spares method we start declaring separate subclasses by the if condition
+  # code in spares is wrong and lakes design
   def spares
     if style == :road
       {

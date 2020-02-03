@@ -6,22 +6,22 @@ class Bicycle
     @chain = args[:chain] || default_chain
     @tire_size = args[:tire_size] || default_tire_size
 
-    post_initialize(args)
+    post_initialize(args) # with this the subclasses will not need to depend on calling super(args)
     # Bicycle both sends
   end
 
-  def post_initialize(args) # and implements this
+  def post_initialize(args) # hook to decouple subclasses initialze method
     nil
-  end
+  end # must be implmeneted by subclasses if they have speicialized constructor method
 
   def spares
     { tire_size: tire_size,
       chain: chain }.merge(local_spares)
   end
 
-  def local_spares
+  def local_spares # hook that decouples subclasses
     {}
-  end
+  end # must be implemented by sub classes if they have specialized spare method
 
   def default_chain
     "10-speed"
@@ -29,21 +29,5 @@ class Bicycle
 
   def default_tire_size
     raise NotImplementedError, "This #{self.class} cannot respond to:"
-  end
-end
-
-class RoadBike < Bicycle
-  # ...
-  def default_tire_size
-    "23"
-  end
-
-  def post_initialize(args)
-    # RoadBike can
-    @tape_color = args[:tape_color] # optionally
-  end
-
-  def local_spares
-    { tape_color: tape_color }
   end
 end
