@@ -1,0 +1,61 @@
+1- enforce single responsiblity every where in
+   calsses, methods and every single place in the app you are building
+
+2-to check the single responsibility for classes do the following:
+   * ask the class about each message it has either a method or 
+       setters and getters
+   *ask the class what is your responsiblity and analyze the answer.
+
+3- to check the single respnsibilty of a class method ask the method
+    what is your respinsibily ? and try to make a sentence to describe that
+    and analyze the sentence.
+
+4- try to make the class methods know less about the structure of its data (class attributes)
+
+5- after writing any code ask your self is it a TRUE code ?
+    T transparent
+    R resonable
+    U usable
+    E examplary
+
+6- never do upfront design to your app code, what for the requirements and do 
+   the necessary changes in accordance..
+
+
+7- Always try to meet the DRY prnciple bye encapsulating code logic in
+   reusable cod.
+
+8- memorize the Gof design patterns and always keep them in mind,
+   because they favour the SOLID prenciples.
+
+9- pay attension to number of lines in a method, and number of lines in
+   a class and number of methods in a class and ask your self should i split
+   this code and introduce new classes or methods, does it favour SOLID, DRY,
+   TRUE  principles ?
+
+10- never over engineer or build a piece of code before you ask your self
+    these design questions.
+
+11- have design questionns for yourself and your code before writing the code,
+    and do also design questions after writing each snipped of code.
+
+12- always have a second and more looks in your code.
+
+13- TRUE code meaning :  
+ 
+     * Transparent : 
+         The consequences of change should be obvious in the code that is
+         changing and in distant code that relies upon it;
+     * Reasonable : 
+         The cost of any change should be proportional to the benefits the change achieves;
+     * Usable: 
+         Existing code should be usable in new and unexpected contexts;
+     * Exemplary :
+         The code itself should encourage those who change it to perpetuate these qualities;
+
+
+14- Code that is Transparent, Reasonable, Usable, and Exemplary (TRUE) not only meets today’s
+     needs but can also be changed to meet the needs of the future.
+     The first step in creating code that is TRUE is
+      to ensure that each class has a single, well-defined responsibility.
+

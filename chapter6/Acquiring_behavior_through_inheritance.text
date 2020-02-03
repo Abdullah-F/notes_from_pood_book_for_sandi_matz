@@ -1,0 +1,93 @@
+1- inheritance is, at its core a mechanism for automatic message delegation.
+
+2- it defines a forwarding path for not understood messages.
+
+3-it creates relationships such that, if one object can not understand the 
+   recieved messages, it delegates that message to another object.
+
+4- messages are delegated form subclass to super class.
+
+5- the challenge is recognising where inheritance would be useful.
+
+6- subclasses are specializations of their super classes.
+
+7 - The general rule for refactoring into a
+     new inheritance hierarchy is to arrange
+     code so that you can promote abstractions
+     rather than demote concretions.
+     In light of this discussion, the question posed a few paragraphs
+     ago might more
+     usefully be phrased: “What will happen when
+     I’m wrong?” Every decision you make
+     includes two costs: one to implement it and another to change it
+     when you discover
+     that you were wrong. Taking both costs into account when choosing 
+     among alternatives
+     motivates you to make conservative choices
+     that minimize the cost of change.
+
+8- Creating code that fails with reasonable error messages
+   takes minor effort in the 
+   present but provides value forever. Each error message is
+   a small thing, but small
+   things accumulate to produce big effects and it is this
+   attention to detail that marks
+   you as a serious programmer.
+   Always document template method requirements by
+   implementing matching methods that raise useful errors.
+
+9- when decide to make an inhertannce first thing make an emty parent class
+   then move the shared code from child classes to the parent, in this way 
+   if you accidently leave shared code in the child classes you are just 
+   leaving some abstraction in them, witch is better than leaving un-shared 
+   code (concretion) in the parent class.
+
+10 - if some attributes need to be initialized differently for different child
+     classes make a method so each class must implement that method to supply
+     their specific values to be initialzed in the parent class, and make the
+     class implement that method as an abstract method which raises an error
+     if called directly on the parent class.
+
+11 - writing method that raises errors in the parent class to inform other 
+     developrs that they must implement them in the upcoming new child classes
+     is a good practice.
+
+12- calling super from subclasses makes subclasses know more about parent 
+    class algorithm and make it easier for other developers to make mistakes
+    in the future (eg. the might forget to call super from subclasses,
+    and hence cas un-predictable errors)
+    the solution is to use hook methods that are called from the parent class
+    to perform the extra initializion (post initialization) 
+    in the parent class, and those methods must be implmented in the parent 
+    class and also its subclasses as apropriate for each
+
+13- Summary :
+    
+    Inheritance solves the problem of related
+    types that share a great deal of common
+    behavior but differ across some dimension.
+    It allows you to isolate shared code and
+    implement common algorithms in an abstract class,
+    while also providing a structure
+    that permits subclasses to contribute specializations.
+    The best way to create an abstract superclass is by pushing code
+    up from concrete subclasses.
+    Identifying the correct abstraction is easiest if you have access
+    to at least three existing concrete classes.
+    This chapter’s simple example relied on just two but in
+    the real world you are often better served to wait for the additional
+    information that three cases supply.
+    Abstract superclasses use the template method pattern 
+    to invite inheritors to supply specializations,
+    and use hook methods to allow these inheritors to contribute these
+    specializations without being forced to send super.
+    Hook methods allow subclasses to contribute specializations
+    without knowing the abstract algorithm.
+    They remove the need for subclasses to send super and therefore reduce 
+    the coupling between layers of the hierarchy and increase its
+    tolerance for change. Well-designed inheritance hierarchies are easy
+    to extend with new subclasses, even for programmers who know very
+    little about the application.
+    This ease of extension is inheritance’s greatest strength.
+    When your problem is one of needing numerous specializations of a stable,
+    common abstraction, inheritance can be an extremely low-cost solution.
