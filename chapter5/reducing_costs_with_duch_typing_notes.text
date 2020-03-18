@@ -8,27 +8,27 @@
 4-sequence diagrams should always be simpler than the code they represent,
   when they are not then some thing is going wrong.
 
-5- duck typing adds more abstraction and less concretion to your code, and 
-   thaus make it easier to change
+5- duck typing adds more abstraction and less concretion to your code, and
+   thus make it easier to change
 
 6- duck type make it easy to add behaviour without changing the existing code
    all what you need is to make a new object that implements the duck type
    required message and you are ready.
 
-7- in oop polymorphism refers to the ability of many objects to recieve the 
+7- in oop polymorphism refers to the ability of many objects to recieve the
    same message.
 
-8- objects that send the message need not to care about the object type of 
+8- objects that send the message need not to care about the object type of
    the reciever. recievers supply their own specific version of the behaviour.
 
 9- Using duck typing relies on your ability to recognize the places where
    your application would benefit from across-class interfaces.
-   It is relatively easy to implement a duck type; your design 
-   challenge is to notice that you need one and to  abstract itsinterface.
+   It is relatively easy to implement a duck type; your design
+   challenge is to notice that you need one and to  abstract its interface.
 
 10- signs that help you to recognize hidden ducks :
     * case statements that switch based on class type
-       -  when you find this ask your self what does your method need, 
+       -  when you find this ask your self what does your method need,
           the answer to this question is the new ducktype interface message.
     * using kind_of? and is_a? methods.
       - ask your self what does your method need ? then add the new interface
@@ -37,10 +37,10 @@
 
 11- Use of kind_of? , is_a? , responds_to?, and case statements that switch on
     your classes indicate the presence of an unidentified duck. In each case
-    the code iseffectively saying :
+    the code is effectively saying :
     “I know who you are and because of that I know what you do.”
     This knowledge exposes a lack of trust in collaborating objects and
-    acts as a millstone around your object’s neck. It introduces 
+    acts as a millstone around your object’s neck. It introduces
     dependencies that make code difficult to change.
 
 12- Flexible applications are built on objects that operate on trust;
@@ -51,7 +51,7 @@
     implement that interface where necessary,
     and then trust those implementers to behave correctly.
 
-13- using dock typing improves your code to be easy to change, but the 
+13- using duck typing improves your code to be easy to change, but the
     abstraction of it can make other developers do not understand that there
     is a duck type. thus your responsibility is to docunent that in the test
     cases.
