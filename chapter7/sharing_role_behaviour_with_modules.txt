@@ -5,14 +5,14 @@
    * Those it emplements
    * Those implemented in all objects above it in the hierarchy.
    * Those implemented in any modules added to it.
-   * Those implemented in any modules added to any objects above it in the 
+   * Those implemented in any modules added to any objects above it in the
      heirarchy.
 
-3- if a module sends a message it must provide an implementation for that 
+3- if a module sends a message it must provide an implementation for that
    method, even if that message merely raises and error indicating that users
    of the module must implement the method.
 
-4- the inherticance represents 'is-a' relashtionship and modules respresents 
+4- the inherticance represents 'is-a' relashtionship and modules respresents
    'behaves-like-a' relationship.
 
 5- when different classes or objects play the same role, then they can
@@ -21,9 +21,9 @@
 6- see the 'Looking Up Methods' section in this chapter to understand
    how methods gets looked up when adding module to the class in ruby.
 
-7- two anti patterns that indicate that your code might benefit from 
+7- two anti patterns that indicate that your code might benefit from
    inheritance:
- 
+
     * First, an object that uses a variable with a name like type or category to
 	determine what message to send to self contains two highly related but
         slightly different types. This is a maintenance nightmare; the code
@@ -32,8 +32,8 @@
         in an abstract superclass and creating subclasses for the different
         types. This rearrangement allows you to create new subtypes by adding
         new subclasses.  These subclasses extend the hierarchy without
-        changing the existing code. 
-    
+        changing the existing code.
+
     * Second, when a sending object checks the class of a receiving object
 	 to determine what message to send, you have overlooked
 	 a duck type. This is another maintenance nightmare; the
@@ -53,7 +53,7 @@
 	 to every class that inherits it.  Superclasses should not
 	 contain code that applies to some, but not all, subclasses.
 	  This restriction also applies to modules: the code in
-	 a module must apply to all who use it. 
+	 a module must apply to all who use it.
 	 Faulty abstractions cause inheriting objects to contain incorrect
 	 behavior; attempts
 	 to work around this erroneous behavior will cause your code
@@ -102,11 +102,11 @@
 	states: Let q(x) be a property provable about
 	objects x of type T. Then q(y) should
 	be true for objects y of type S
-	where S is a subtype of T. 
+	where S is a subtype of T.
 	Mathematicians will instantly comprehend this statement;
 	everyone else should understand it to say that in order
 	for a type system to be sane, sub-
-	types must be substitutable for their supertypes. 
+	types must be substitutable for their supertypes.
 	Following this principle creates applications where a subclass
 	can be used anywhere its superclass would do,
 	and where objects that include modules can be
@@ -192,7 +192,7 @@
 	the template method pattern to invite those that
 	include them to supply specializations, and should implement
 	hook methods to avoid forcing includer s to
-	send super (and thus know the algorithm).  
+	send super (and thus know the algorithm).
 
 	When an object acquires behavior that was defined
 	elsewhere, regardless of whether this elsewhere is a
