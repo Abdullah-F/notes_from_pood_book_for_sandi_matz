@@ -10,7 +10,7 @@
    * are throuoghly doucumented in the tests.
    * be explicitly identfied as such
    * be more about what than how
-   * have names that, in so far as such you can inticipate, will not change. 
+   * have names that, in so far as such you can inticipate, will not change.
    * takes a hash as an option parameter
 
 4 - requirements for methods that make up the private interface of a class :
@@ -21,19 +21,19 @@
    * may not be even referenced in the tests.
 
 5- the design goal is to retain the maximum flixibaility to change in future,
-   and at the same time writing the less code possible that meets today's 
+   and at the same time writing the less code possible that meets today's
    requirements.
 
 6- using UML such as sequence diagrams help you imagine the interaction
-   between objects so gives you a clear idea about classed that will be 
+   between objects so gives you a clear idea about classes that will be
    created and the intenion of messages between them.
 
-7- converting requirements to usecases help and then representing usecases in 
-   sequenece diagrams make you understand how will you translate the 
+7- converting requirements to use cases help and then representing use cases in
+   sequenece diagrams make you understand how will you translate the
    requiremements into a good designed code
 
 8- sequence diagrams makes the design change from class based to message based
-   design and that is the starting point for a good design that will come up 
+   design and that is the starting point for a good design that will come up
    later on.
 
 9- you do not send messages because you have objects, you have objects because
@@ -41,14 +41,14 @@
 
 10- the conversation between object should be about what? not how?
     so the first object does not know how the other objects is doing things,
-    instead it just send one reliable message to the other object and getting the 
-    result so the other object knows how to do things and replays with a 
+    instead it just send one reliable message to the other object and getting the
+    result so the other object knows how to do things and replays with a
     result response to that message sent by the first object.
 
 11- objects that have a simple context are easier to reuse and easier to test.
 
 12- one a message is sent from one object to another the message should
-    be as if the first object says: 
+    be as if the first object says:
     'I know what I want and I trust you to do your parts to accomlish it' to
     the other object.
 
@@ -57,10 +57,10 @@
 14- design public interfaces with an eye on minimizing the context they
     require from others.
 
-15- design public interfaces that allow others to get 'what' they want 
+15- design public interfaces that allow others to get 'what' they want
     with out knowing 'how' your class implements it or do it.
 
-16- The train wrecks of Demeter violations are clues that there are 
+16- The train wrecks of Demeter violations are clues that there are
     objects whose public interfaces are lacking.
     Listening to Demeter means paying attention to your point of view.
     If you shift to a message-based perspective, the messages you find will
@@ -70,11 +70,11 @@
     thus will miss the opportunity to find and construct flexible public
     interfaces.
 
-17- violationg the law of demeter 'LoD' can idicate a lack in the public 
-    interface of the public interface since you have to dig deeper to call
+17- violationg the law of demeter 'LoD' can idicate a lack in the public
+    interface of the object since you have to dig deeper to call
     a message.
 
-18- to know if you are violating the LoD or not check what the chan of dots 
+18- to know if you are violating the LoD or not check what the chan of dots
     'the train wrecks' return each time, if they return a new object each time
-    then you are violating the law of demeter. to more accurate if they 
+    then you are violating the law of demeter. to more accurate if they
     return 3 or more different objects by the end of the chain.

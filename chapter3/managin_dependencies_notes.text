@@ -1,10 +1,10 @@
-1- objects represent real world qualities of the problem and the interaction 
+1- objects represent real world qualities of the problem and the interaction
    between objects is the solution to the problem.
 
-2- an object must know something about other objects and 'knowing' creates a 
+2- an object must know something about other objects and 'knowing' creates a
    dependency that must be managed carefully.
 
-3- an object depened on an object if a change in an object might or require 
+3- an object depeneds on an object if a change in an object might or require
    the other object to be changed.
 
 4- an object has a dependancy when it knows :
@@ -17,51 +17,51 @@
 
 6- the more coupled the objects the more they behave like a single entity.
 
-7- to make less dependencies code and loosely coupled code follow the 
+7- to make less dependencies code and loosely coupled code follow the
    following techniques:
-   * inject dependencies. 
+   * inject dependencies.
         ** so you get the object you depend on as parameter (DUCK TYPE)
    * isolate dependencies.
      ** first in case you are constrained with an existing code and can not
         use dependency injection then isolate the creation of the
-        other object you depend on inside your current object, in a separate 
-        lazy method for example the instantionate the object you depend 
+        other object you depend on inside your current object, in a separate
+        lazy method for example the instantionate the object you depend
         on only when you call it.
-    
-      ** second isolate messages you send to others other than self in a 
+
+      ** second isolate messages you send to others other than self in a
         method (private method for example) inside your object.
    * remove argument order dependecies.
-    ** first if you control the signature of a method then do not use 
-       fixed-ordered arguments for the method or constructor, instead use 
-       a hash or some fixed-ordered arguments and the last one to be a hash 
+    ** first if you control the signature of a method then do not use
+       fixed-ordered arguments for the method or constructor, instead use
+       a hash or some fixed-ordered arguments and the last one to be a hash
        for adding options.
 
-    ** second if you are calling a method or creating an object that 
+    ** second if you are calling a method or creating an object that
        belongs to someone else or a code for others that you use in your code
        that has a fixed-order argument  and you can not change its
        signature then wrape it in a method where u send a hash to that method
-       and that method calls or instantiates the other method or object using 
-       the  hash parameter you send then u call the wrapper method in your 
-       code so you use your code and protect yourself when others change 
+       and that method calls or instantiates the other method or object using
+       the  hash parameter you send then u call the wrapper method in your
+       code so you use your code and protect yourself when others change
        their fixed-ordered arguments in their code.
 
 8- objects become less useful if it knows more about other objects,
    if it knows less that is prefered.
 
 9- we can use factory objects to help us avoid the dependency of fixed-ordered
-   argument length constructors or signatures that we can not change. 
+   argument length constructors or signatures that we can not change.
    so we remove this dependency using the factory.
 
-10- depending on an abstraction is always safer than depending on concretion 
+10- depending on an abstraction is always safer than depending on concretion
     because by its very nature abstraction is far more stable.
 
-11 - we can manage dependencies by inversioning them so we make the other 
+11 - we can manage dependencies by inversioning them so we make the other
      object send messages to the current object. but how to decide which
      object should depend on which ?, the answer is to depend on the more
      stable class or abstract class see note 10 above and check page 50-55 for
      more explanation if you still can not get it.
 
-12- depend on objects that is less likely to change and when changed it is supsequents are resonable 
+12- depend on objects that is less likely to change and when changed it is supsequents are resonable
     likely your object will change because they manage their dependencies
     well.
 

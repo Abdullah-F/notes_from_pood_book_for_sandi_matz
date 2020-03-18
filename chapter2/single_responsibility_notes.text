@@ -2,7 +2,7 @@
    calsses, methods and every single place in the app you are building
 
 2-to check the single responsibility for classes do the following:
-   * ask the class about each message it has either a method or 
+   * ask the class about each message it has either a method or
        setters and getters
    *ask the class what is your responsiblity and analyze the answer.
 
@@ -18,12 +18,12 @@
     U usable
     E examplary
 
-6- never do upfront design to your app code, what for the requirements and do 
+6- never do upfront design to your app code, wait for the requirements and do
    the necessary changes in accordance..
 
 
 7- Always try to meet the DRY prnciple bye encapsulating code logic in
-   reusable cod.
+   reusable code.
 
 8- memorize the Gof design patterns and always keep them in mind,
    because they favour the SOLID prenciples.
@@ -36,19 +36,19 @@
 10- never over engineer or build a piece of code before you ask your self
     these design questions.
 
-11- have design questionns for yourself and your code before writing the code,
+11- have design questions for yourself and your code before writing the code,
     and do also design questions after writing each snipped of code.
 
 12- always have a second and more looks in your code.
 
-13- TRUE code meaning :  
- 
-     * Transparent : 
+13- TRUE code meaning :
+
+     * Transparent :
          The consequences of change should be obvious in the code that is
          changing and in distant code that relies upon it;
-     * Reasonable : 
+     * Reasonable :
          The cost of any change should be proportional to the benefits the change achieves;
-     * Usable: 
+     * Usable:
          Existing code should be usable in new and unexpected contexts;
      * Exemplary :
          The code itself should encourage those who change it to perpetuate these qualities;
