@@ -27,7 +27,7 @@
     precise process that alters code via tiny, crab-like steps and carefully,
     incrementally, and unerringly
     transforms one design into another.Good design preserves maximum flexibility at
-    minimum cost by putting off deci- sions at every opportunity, deferring
+    minimum cost by putting off decisions at every opportunity, deferring
     commitments until more specific requirements arrive.
     When that day comes, refactoring is how you morph the current code structure
     into one that will accommodate the new requirements. New features will be added
@@ -40,8 +40,7 @@
     tests prove that altered
     code continues to behave correctly without raising overall costs. Good tests
     weather code refactorings with aplomb; they are written such that changes to
-    the code do not
-    force rewrites of the tests.
+    the code do not force rewrites of the tests.
 
 3- intentions and reasons for writing tests :
 
@@ -96,7 +95,7 @@ Supporting Abstractions
     single place in the code that makes obvious the behavior of the whole.  As the
     code base expands and the number of abstractions grows, tests become
     increasingly necessary. There is a level of design abstraction where it is
-    almost impossi- ble to safely make any change unless the code has tests. Tests
+    almost impossible to safely make any change unless the code has tests. Tests
     are your record of the interface of every abstraction and as such they are the
     wall at your back. They let you put off design decisions and create
     abstractions to any useful depth.
@@ -143,13 +142,13 @@ Exposing Design Flaws
 
     The general rule is that objects should make assertions about state only for
     messages in their own public interfaces. Following this rule confines tests of
-    message return values to a single place and removes unneces- sary duplication,
+    message return values to a single place and removes unnecessary duplication,
     DRYing out your tests and lowering maintenance costs.  The fact that you need
     not test outgoing messages for state does not mean outgoing messages need no
     tests at all. There are two flavors of outgoing messages, and one of them
     requires a different kind of test.  Some outgoing messages have no side effects
     and thus matter only to their senders. The sender surely cares about the result
-    it gets back (why else send the mes- sage?), but no other part of the
+    it gets back (why else send the message?), but no other part of the
     application cares if the message gets sent. Outgoing messages like this are
     known as queries and they need not be tested by the sending object. Query
     messages are part of the public interface of their receiver, which already
@@ -191,7 +190,7 @@ Exposing Design Flaws
     true.
 
     Be warned, however, that writing tests first is no substitute for and does not
-    guar- antee a well-designed application. The reusability that results from
+    guarantee a well-designed application. The reusability that results from
     test-first is an improvement over nothing at all but the resulting application
     can still fall far short of good design. Well-intentioned novices often write
     expensive, duplicative tests around messy, tightly coupled code. It is an
@@ -204,7 +203,7 @@ Exposing Design Flaws
     triumphs of perseverance; it’s a miracle these applications work at all. The
     code is hard. The applications are difficult to change and every refactoring
     breaks all the tests.  This high cost of change can easily start a downward
-    productivity spiral that is dis- couraging for all concerned. Changes cascade
+    productivity spiral that is discouraging for all concerned. Changes cascade
     throughout the application, and the maintenance cost of tests makes them seem
     costly relative to their worth.  If you are a novice and in this situation,
     it’s important to sustain faith in the value of tests. Done at the correct time
@@ -223,15 +222,15 @@ Exposing Design Flaws
     reuse are ones they already have. These programmers already write loosely
     coupled, reusable code; tests add value in other ways.  It is not unheard of
     for experienced designers to “spike” a problem, that is, to do experiments
-    where they just write code. These experiments are exploratory, for prob- lems
+    where they just write code. These experiments are exploratory, for problems
     about whose solution they are uncertain. Once clarity is gained and a design
-    sug- gests itself, these programmers then revert to test-first for production
+    suggests itself, these programmers then revert to test-first for production
     code.  Your overall goal is to create well-designed applications that have
     acceptable test coverage. The best way to reach this goal varies according to
     the strengths and experience of the programmer.  This license to use your own
     judgment is not permission to skip testing. Poorly designed code without tests
     is just legacy code that can’t be tested. Don’t overestimate your strengths and
-    use an inflated self-view as an excuse to avoid tests. While it some- times
+    use an inflated self-view as an excuse to avoid tests. While it sometimes
     makes sense to write a bit of code the old fashioned way, you should err on the
     side of test-first.
 
@@ -245,11 +244,11 @@ Exposing Design Flaws
 
     However, there are many good reasons to stay within the testing mainstream. The
     frameworks with the most use have the best support. They are speedily updated
-    to en- sure compatibility with new releases of Ruby (and of Rails) and so
+    to ensure compatibility with new releases of Ruby (and of Rails) and so
     present no obstacle to keeping current. Their large user base biases them
     towards maintaining backward compatibility; it’s unlikely they’ll change in
     such a way as to force a rewrite of all your tests. And because they are widely
-    adopted, it’s easy to find programmers who have ex- perience using them.  As of
+    adopted, it’s easy to find programmers who have experience using them.  As of
     this writing, the mainstream frameworks are MiniTest, from Ryan Davis and
     seattle.rb and bundled with Ruby as of version 1.9, and RSpec, from David
     Chelimsky and the RSpec team. These frameworks have different philosophies and
@@ -263,8 +262,8 @@ Exposing Design Flaws
 
     Both styles create code by writing tests first. BDD takes an outside-in
     approach, creating objects at the boundary of an application and working its
-    way inward, mock- ing as necessary to supply as-yet-unwritten objects. TDD
-    takes an inside-out ap- proach, usually starting with tests of domain objects
+    way inward, mocking as necessary to supply as-yet-unwritten objects. TDD
+    takes an inside-out approach, usually starting with tests of domain objects
     and then reusing these newly created domain objects in the tests of adjacent
     layers of code.  Past experience or inclination may render one style more
     suitable for you than the other, but both are completely acceptable. Each has
@@ -280,11 +279,17 @@ Exposing Design Flaws
     you dial your testing focus down to the specific object under test, you’ll need
     to choose a testing point-of-view. Your tests could stand completely inside of
     the object under test, with effective access to all of its internals. This is a
-    bad idea, how- ever, because it allows knowledge that should be private to the
+    bad idea, however, because it allows knowledge that should be private to the
     object to leak into the tests, increasing coupling between them and raising the
     likelihood that changes to code will require changes in tests. It’s better for
     tests to assume a viewpoint that sights along the edges of the object under
     test, where they can know only about messages that come and go.
 
+7- do not test incoming messages that has no dependents.
 
+8 - Incoming messages are tested by making assertions about the value, or
+    state, that their invocation returns. The first requirement for testing an
+    incoming message is to prove that it returns the correct value in every
+    possible situation.
 
+9-
